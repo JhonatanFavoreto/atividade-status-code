@@ -1,10 +1,10 @@
 import express from "express";
-import {    
-  getAllBruxos,
-  getBruxoById,
-  createBruxo,
-  deleteBruxo,
-  updateBruxo,
+import {
+    getAllBruxos,
+    getBruxoById,
+    createBruxo,
+    deleteBruxo,
+    updateBruxo,
 } from "./../controllers/bruxosController.js";
 
 const router = express.Router();
