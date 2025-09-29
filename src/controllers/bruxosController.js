@@ -85,7 +85,7 @@ const createBruxo = (req, res) => {
 };
 
 const deleteBruxo = (req, res) => {
-  const { id } = req.body;
+  const { id } = req.params;
   if (isNaN(id)) {
     return res.status(400).json({
       success: false,
@@ -93,18 +93,9 @@ const deleteBruxo = (req, res) => {
     });
   }
 
-  const { admin } = req.body;
+  const idParaApagar = parseInt(id)
 
-  if (admin === false) {
-    return res.status(403).json({
-      status: 403,
-      success: false,
-      message: "Somente o Diretor pode executar essa magia!",
-      error: "Erro na autentificação",
-      suggestions: ["Alterar a autenticação."],
-    });
-  }
-
+  const bruxoParaRemover = bruxos.find((b) => b.id === idParaApagar);
   if (!bruxoParaRemover) {
     return res.status(404).json({
       sucess: false,
